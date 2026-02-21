@@ -1,6 +1,8 @@
 *.keras
 *.h5
 *.env
-__pychache__/
+__pycache__/
 dataset/
 .ipynb_checkpoints/
+venv/
+env/
