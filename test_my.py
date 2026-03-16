@@ -1,12 +1,16 @@
+import os
 import tensorflow as tf
 import numpy as np
 from PIL import Image
 
-MODEL_PATH = "fruits_360.keras"
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+# Build the absolute path to the model and image based on the script directory
+MODEL_PATH = os.path.join(SCRIPT_DIR, "fruits_360.keras")
+image_path = os.path.join(SCRIPT_DIR, "saved_images", "banana01.jpg")
 
 model = tf.keras.models.load_model(MODEL_PATH)
-
-image_path = "saved_images/phone_20260222_001513_8185bd7f.webp"
 
 def upload_img(file_obj):
     img = Image.open(file_obj)
@@ -16,4 +20,6 @@ def upload_img(file_obj):
     img = np.expand_dims(img, axis=0)
     return img
 
-model.predict(upload_img(file_obj))
+prediction = model.predict(upload_img(image_path))
+predicted_class = np.argmax(prediction[0])
+print(f"Predicted class index: {predicted_class}")
