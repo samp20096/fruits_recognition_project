@@ -15,10 +15,9 @@ To get this application running locally, please follow these steps carefully:
 First, clone this repository to your local machine and navigate into the project folder.
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/samp20096/fruits_recognition_project
 cd fruits360_project
 ```
-*(Note: Replace `<your-repository-url>` with the actual URL of your repository)*
 
 ### 2. Install Dependencies
 
